@@ -1,5 +1,17 @@
 version: "3.7"
 services:
+  kafkaserver:
+    image: "spotify/kafka:latest"
+    container_name: kafka
+    hostname: kafkaserver
+    networks: 
+      - spark-network
+    ports:
+      - 2181:2181
+      - 9092:9092
+    environment:
+      ADVERTISED_HOST: kafkaserver
+      ADVERTISED_PORT: 9092
   spark-master:
     image: spark-master:2.4.3
     container_name: spark-master
