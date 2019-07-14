@@ -24,7 +24,7 @@ services:
       spark-network:
         ipv4_address: 10.5.0.2
     volumes:
-       - d:/repository/com/kore/bling/engine/services/services-worker/1.0-SNAPSHOT:/opt/spark-apps
+       - d:/repository/com/quan/sparkApp/1.0-SNAPSHOT:/opt/spark-apps
        - d:/Dev/Local-Dockers/spark-data:/opt/spark-data
     environment:
       - "SPARK_LOCAL_IP=spark-master"
@@ -44,7 +44,7 @@ services:
       spark-network:
         ipv4_address: 10.5.0.3
     volumes:
-       - d:/repository/com/kore/bling/engine/services/services-worker/1.0-SNAPSHOT:/opt/spark-apps
+       - d:/repository/com/quan/sparkApp/1.0-SNAPSHOT:/opt/spark-apps
        - d:/Dev/Local-Dockers/spark-data:/opt/spark-data
   spark-worker-2:
     image: spark-worker:2.4.3
@@ -62,7 +62,7 @@ services:
       spark-network:
         ipv4_address: 10.5.0.4
     volumes:
-       - d:/repository/com/kore/bling/engine/services/services-worker/1.0-SNAPSHOT:/opt/spark-apps
+       - d:/repository/com/quan/sparkApp/1.0-SNAPSHOT:/opt/spark-apps
        - d:/Dev/Local-Dockers/spark-data:/opt/spark-data
 
   cassandra:
