@@ -1,18 +1,5 @@
 version: "3.7"
 services:
-  kafkaserver:
-    image: "spotify/kafka:latest"
-    container_name: kafka
-    hostname: kafkaserver
-    networks: 
-      spark-network:
-        ipv4_address: 10.5.0.5
-    ports:
-      - 2181:2181
-      - 9092:9092
-    environment:
-      ADVERTISED_HOST: kafkaserver
-      ADVERTISED_PORT: 9092
   spark-master:
     image: spark-master:2.4.3
     container_name: spark-master
@@ -64,28 +51,6 @@ services:
     volumes:
        - d:/repository/com/kore/bling/engine/services/services-worker/1.0-SNAPSHOT:/opt/spark-apps
        - d:/Dev/Local-Dockers/spark-data:/opt/spark-data
-
-  cassandra:
-    image: "cassandra"
-    container_name: cassandra
-    hostname: cassandra
-    networks: 
-      spark-network:
-        ipv4_address: 10.5.0.7
-    ports:
-      - 9042:9042
-    volumes:
-      - d:/Dev/Local-Dockers/cassandra-data:/var/lib/cassandra 
-      
-  redis:
-    image: "redis"
-    container_name: redis
-    hostname: redis
-    networks: 
-      spark-network:
-        ipv4_address: 10.5.0.9
-    ports:
-      - 6379
 networks:
   spark-network:
     driver: bridge

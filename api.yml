@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  api:
+    image: bling-api:latest
+    container_name: bling-api
+    hostname: bling-api
+    ports:
+      - 37600:37600
+    networks:
+      mynet:
+        ipv4_address: 10.5.0.6
+networks:
+  mynet:
+    external: true
+    name: docker-spark_spark-network
