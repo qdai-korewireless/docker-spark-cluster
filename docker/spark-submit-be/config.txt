@@ -1,0 +1,36 @@
+conf{
+environment="quan"
+useHdfsFileSystem="false"
+}
+spark{
+master="spark://spark-master:7077"
+checkpointLocation="/tmp/"${spark.appName}"/"
+settingsCollection{
+"spark.executor.memory"="2g"
+	"spark.driver.memory"="2g"
+	"spark.driver.cores"="2"
+	"spark.executor.cores"="2"
+}
+}
+redis{
+server="redis"
+port="6379"
+}
+kafka{
+servers="kafkaserver:9092"
+}
+restClient{
+allowSelfSignedCertificates=false
+}
+blingapi{
+url="http://bling-api:37600/api/v1/"
+}
+mssql{
+host:"QDAI-943"
+port:"1433"
+fe:"LOCAL_FE"
+be:"LOCAL_BE"
+user:"sa"
+password:"Keys2TheK1ngd0m"
+
+}

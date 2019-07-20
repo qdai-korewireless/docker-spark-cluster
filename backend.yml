@@ -13,17 +13,6 @@ services:
     environment:
       ADVERTISED_HOST: kafkaserver
       ADVERTISED_PORT: 9092
-  cassandra:
-    image: "cassandra"
-    container_name: cassandra
-    hostname: cassandra
-    networks: 
-      mynet:
-        ipv4_address: 10.5.0.7
-    ports:
-      - 9042:9042
-    volumes:
-      - d:/Dev/Local-Dockers/cassandra-data:/var/lib/cassandra 
       
   redis:
     image: "redis"
@@ -33,7 +22,7 @@ services:
       mynet:
         ipv4_address: 10.5.0.9
     ports:
-      - 6379
+      - 32769:6379
 networks:
   mynet:
     external: true
