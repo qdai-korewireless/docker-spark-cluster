@@ -8,7 +8,7 @@ services:
       - "8080:8080"
       - "7077:7077"
     networks: 
-      spark-network:
+      mynet:
         ipv4_address: 10.5.0.2
     volumes:
        - d:/repository/com/kore/bling/engine/services/services-worker/1.0-SNAPSHOT:/opt/spark-apps
@@ -24,11 +24,11 @@ services:
     ports:
       - "8081:8081"
       - "4040:4040"
-    env_file: ./env/spark-worker.sh
+    env_file: ./spark-worker.sh
     environment:
       - "SPARK_LOCAL_IP=spark-worker-1"
     networks: 
-      spark-network:
+      mynet:
         ipv4_address: 10.5.0.3
     volumes:
        - d:/repository/com/kore/bling/engine/services/services-worker/1.0-SNAPSHOT:/opt/spark-apps
@@ -42,20 +42,16 @@ services:
     ports:
       - "8082:8081"
       - "4041:4040"
-    env_file: ./env/spark-worker.sh
+    env_file: ./spark-worker.sh
     environment:
       - "SPARK_LOCAL_IP=spark-worker-2"
     networks: 
-      spark-network:
+      mynet:
         ipv4_address: 10.5.0.4
     volumes:
        - d:/repository/com/kore/bling/engine/services/services-worker/1.0-SNAPSHOT:/opt/spark-apps
        - d:/Dev/Local-Dockers/spark-data:/opt/spark-data
 networks:
-  spark-network:
-    driver: bridge
-    attachable: true
-    ipam:
-     driver: default
-     config:
-       - subnet: 10.5.0.0/16
+  mynet:
+    external: true
+    name: docker-spark_spark-network
