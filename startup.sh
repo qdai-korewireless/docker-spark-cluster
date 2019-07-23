@@ -2,7 +2,9 @@
 #build images
 ./env/build-images.sh
 
-#setup network
+$BLING_ENG_JAR_LOCATION="./bling_eng_jar"
+
+#create a network if not exist
 docker network ls|grep docker-spark_spark-network > /dev/null || docker network create docker-spark_spark-network --driver=bridge --subnet=10.5.0.0/16
 
 #launch everything

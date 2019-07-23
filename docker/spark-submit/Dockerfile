@@ -10,5 +10,4 @@ ENV SPARK_APPLICATION_JAR_LOCATION="/opt/spark-apps/services-worker-1.0-SNAPSHOT
 ENV SPARK_APPLICATION_MAIN_CLASS="com.kore.bling.engine.services.worker.App"
 
 
-
 CMD ["/bin/bash", "/spark-submit.sh"]
