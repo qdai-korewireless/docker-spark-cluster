@@ -5,8 +5,7 @@ services:
     container_name: kafka
     hostname: kafkaserver
     networks: 
-      mynet:
-        ipv4_address: 10.5.0.5
+      - mynet
     ports:
       - 2181:2181
       - 9092:9092
@@ -19,8 +18,7 @@ services:
     container_name: redis
     hostname: redis
     networks: 
-      mynet:
-        ipv4_address: 10.5.0.9
+      - mynet
     ports:
       - 32769:6379
 networks:
