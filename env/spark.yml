@@ -25,6 +25,7 @@ services:
     env_file: ./../.env
     environment:
       - "SPARK_LOCAL_IP=spark-worker-1"
+      - "SPARK_LOCAL_HOSTNAME=spark-worker-1"
     networks: 
       - mynet
     volumes:
@@ -41,6 +42,7 @@ services:
     env_file: ./../.env
     environment:
       - "SPARK_LOCAL_IP=spark-worker-2"
+      - "SPARK_LOCAL_HOSTNAME=spark-worker-2"
     networks: 
       - mynet
     volumes:

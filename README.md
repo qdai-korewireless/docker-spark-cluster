@@ -1,8 +1,3 @@
-todo:
-1. move config to root
-2. try get rid of IP
-3. make variables in one place
-
 
 Things to prepare
 
